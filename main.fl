@@ -1,0 +1,394 @@
+def interpret
+
+# clear memory cells 3 through 9
+    sez 0
+# inst is a >
+    frz 3
+# inst is a <
+    frz 4
+# inst is a +
+    frz 5
+# inst is a -
+    frz 6
+# inst is a .
+    frz 7
+# , is not supported
+# inst is a [
+    frz 8
+# inst is a ]
+    frz 9
+
+# copy current command into 0
+    tod 1
+
+# unless mem 15 or 16 is not 0, which mean we're traversing a [ or ]
+    may 15
+    sez 0
+    may 16
+    sez 0
+
+# >
+    dec 0
+    nmy 0
+    inc 3
+# <
+    dec 0
+    nmy 0
+    inc 4
+# +
+    dec 0
+    nmy 0
+    inc 5
+# -
+    dec 0
+    nmy 0
+    inc 6
+# .
+    dec 0
+    nmy 0
+    inc 7
+# , is not supported
+    dec 0
+
+
+# [
+    dec 0
+    nmy 0
+    inc 8
+# ]
+    dec 0
+    nmy 0
+    inc 9
+
+
+# >
+    may 3
+    inc 1
+    may 3
+    inc 2
+# <
+    may 4
+    inc 1
+    may 4
+    dec 2
+# +
+    may 5
+    inc 1
+    may 5
+    ind 2
+# -
+    may 6
+    inc 1
+    may 6
+    ded 2
+# .
+    may 7
+    inc 1
+    may 7
+    tod 2
+    may 7
+    pri 0
+# , is not supported
+# [
+    tod 2
+    frz 11
+    sez -2
+    frz 10
+
+# if looking at a [, inc.
+    may 8
+    inc 10
+# if ptr is 0, inc.
+    nmy 11
+    inc 10
+
+    nmy 10
+    inc 15
+    nmy 10
+    dec 8
+    may 8
+    inc 1
+# ]
+    tod 2
+    frz 11
+    sez -2
+    frz 10
+
+    may 9
+    inc 10
+    may 11
+    inc 10
+
+    nmy 10
+    inc 16
+    nmy 10
+    dec 9
+    may 9
+    inc 1
+
+    sez 0
+
+# traverse [
+    may 15
+    inc 1
+# if this is a [, increment 15 again. if it is a ], decrement
+    may 15
+    tod 1
+    frz 11
+    may 15
+    dec 11
+    may 15
+    dec 11
+    may 15
+    dec 11
+    may 15
+    dec 11
+    may 15
+    dec 11
+    may 15
+    dec 11
+    may 15
+    dec 11
+# check for [
+# tricky: we need to test if 15 is != 0 and also if 11 is == 0
+# we set 10 to -2 and then increment it for each passed condition
+    sez -2
+    frz 10
+    sez 0
+    may 15
+    inc 10
+    nmy 11
+    inc 10
+# now 10 is 0 if we need to increment 15
+    nmy 10
+    inc 15
+# check for ]
+    may 15
+    dec 11
+
+# check 15 and 10
+    sez -2
+    frz 10
+    sez 0
+    may 15
+    inc 10
+    nmy 11
+    inc 10
+
+# now 10 is 0 if we need to decrement 15
+    nmy 10
+    dec 15
+
+# traverse ]
+    may 16
+    dec 1
+# if this is a ], increment 16 again. if it is a [, decrement
+    may 16
+    tod 1
+    frz 11
+    may 16
+    dec 11
+    may 16
+    dec 11
+    may 16
+    dec 11
+    may 16
+    dec 11
+    may 16
+    dec 11
+    may 16
+    dec 11
+    may 16
+    dec 11
+# check for [
+# tricky: we need to test if 16 is != 0 and also if 11 is == 0
+# we set 10 to -2 and then increment it for each passed condition
+    sez -2
+    frz 10
+    sez 0
+    may 16
+    inc 10
+    nmy 11
+    inc 10
+# now 10 is 0 if we need to decrement 16
+    nmy 10
+    dec 16
+# check for ]
+    may 16
+    dec 11
+
+# check 16 and 10
+    sez -2
+    frz 10
+    sez 0
+    may 16
+    inc 10
+    nmy 11
+    inc 10
+
+# now 10 is 0 if we need to increment16
+    nmy 10
+    inc 16
+
+
+    
+    
+
+def i
+    cal interpret
+
+# 0: reserved
+# 1: pc
+# 2: pointer
+# 3~9: for skipping long code blocks
+def main
+    sez 10000
+    frz 2
+
+    sez 100
+    frz 1
+
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+cal i
+# copy/paste "cal i" several hundred million more times
