@@ -5,7 +5,7 @@ FunkshunL is quasi-turing-complete and has a working brainfuck interpreter (see 
 
 # Design
 
-FunkshunL is a tape language (like brainfuck) with no looping primitives. The only control flow primitives skip over the singular next instruction. Function calls exist, but only execute a single instruction in a statically-created function state object, rather than actually "calling a function". Also, this statically-created function state object is created at the ***call site***, not the definition site.
+FunkshunL is a direct memory access language with no looping primitives. The only control flow primitives skip over the singular next instruction. Function calls exist, but only execute a single instruction in a statically-created function state object, rather than actually "calling a function". Also, this statically-created function state object is created at the ***call site***, not the definition site.
 
 This means that if you want a function to actually call, you need to write `cal myfunc` however many times there are instructions in the function... except that wouldn't work because each ***call site*** has its own function state object, so you have to wrap it in another function first and then call that instead. (Functions loop when they finish running, except for main, which does not loop.)
 
