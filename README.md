@@ -1,5 +1,5 @@
 # FunkshunL
-FunkshunL is an esoteric programming language with no flow control and broken function call semantics.
+FunkshunL is an esoteric programming language with unusable flow control and broken function call semantics.
 
 FunkshunL is quasi-turing-complete and has a working brainfuck interpreter (see main.fl).
 
