@@ -1,6 +1,8 @@
 # FunkshunL
 FunkshunL is an esoteric programming language with no flow control and broken function call semantics.
 
+FunkshunL is quasi-turing-complete and has a working brainfuck interpreter (see main.fl).
+
 # Design
 
 FunkshunL is a tape language (like brainfuck) with no looping primitives. The only control flow primitives skip over the singular next instruction. Function calls exist, but only execute a single instruction in a statically-created function state object, rather than actually "calling a function". Also, this statically-created function state object is created at the call site, not the definition site.
@@ -29,7 +31,32 @@ Memory cells are 32-bit signed integers and there are 2^16 of them.
 
 # Hello World
 
-TODO
+```
+def main
+sez 72
+pri 0
+sez 101
+pri 0
+sez 108
+pri 0
+pri 0
+sez 111
+pri 0
+sez 32
+pri 0
+sez 119
+pri 0
+sez 111
+pri 0
+sez 114
+pri 0
+sez 108
+pri 0
+sez 100
+pri 0
+sez 33
+pri 0
+```
 
 # Brainfuck interpreter
 
